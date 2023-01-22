@@ -11,6 +11,14 @@ private Vector2f toVector2f(sfVector2f vector) {
     return Vector2f(vector.x, vector.y);
 }
 
+private FloatRect toFloatRect(sfFloatRect floatRect) {
+    return FloatRect(
+        floatRect.left,
+        floatRect.top,
+        floatRect.width,
+        floatRect.height);
+}
+
 struct Vector2f {
     float x;
     float y;
@@ -35,6 +43,13 @@ struct Vector3f {
     float x;
     float y;
     float z;
+}
+
+struct FloatRect {
+    float left;
+    float top;
+    float width;
+    float height;
 }
 
 class RenderStates {
@@ -222,12 +237,12 @@ class Shape : Transformable, Drawable {
         return ptr.sfShape_getPoint(index).toVector2f();
     }
 
-    sfFloatRect getLocalBounds() {
-        return ptr.sfShape_getLocalBounds();
+    FloatRect getLocalBounds() {
+        return ptr.sfShape_getLocalBounds().toFloatRect();
     }
 
-    sfFloatRect getGlobalBounds() {
-        return ptr.sfShape_getGlobalBounds();
+    FloatRect getGlobalBounds() {
+        return ptr.sfShape_getGlobalBounds().toFloatRect();
     }
 
     private sfShape* ptr;
