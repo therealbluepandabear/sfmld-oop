@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/sfmld-oop
+sfmld-oop.so
+sfmld-oop.dylib
+sfmld-oop.dll
+sfmld-oop.a
+sfmld-oop.lib
+sfmld-oop-test-*
+*.exe
+*.o
+*.obj
+*.lst

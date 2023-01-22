@@ -1,0 +1,8 @@
+{
+	"authors": [
+		"thebluepandabear"
+	],
+	"description": "Unofficial OOP wrappers for bindbc-sfml.",
+	"license": "GNU GPL V3",
+	"name": "sfmld-oop"
+}
