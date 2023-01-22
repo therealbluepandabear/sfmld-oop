@@ -56,6 +56,12 @@ interface Drawable {
 	void draw(RenderTarget target, sfRenderStates states);
 }
 
+class Transformable {
+	void setPosition(float x, float y);
+
+	void setPosition(Vector2f position);
+}
+
 class RectangleShape : Drawable {
 	this(Vector2f size) {
 		_size = size;
