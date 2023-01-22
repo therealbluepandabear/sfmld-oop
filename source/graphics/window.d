@@ -82,5 +82,41 @@ class Window {
         ptr.sfWindow_setMouseCursorGrabbed(grabbed);
     }
 
+    void setMouseCursor(sfCursor* cursor) {
+        ptr.sfWindow_setMouseCursor(cursor);
+    }
+
+    void setKeyRepeatEnabled(bool enabled) {
+        ptr.sfWindow_setKeyRepeatEnabled(enabled);
+    }
+
+    void setFramerateLimit(uint limit) {
+        ptr.sfWindow_setFramerateLimit(limit);
+    }
+
+    void setJoystickThreshold(float threshold) {
+        ptr.sfWindow_setJoystickThreshold(threshold);
+    }
+
+    void setActive(bool active) {
+        ptr.sfWindow_setActive(active);
+    }
+
+    void requestFocus() {
+        ptr.sfWindow_requestFocus();
+    }
+
+    bool hasFocus() {
+        return cast(bool)(ptr.sfWindow_hasFocus());
+    }
+
+    void display() {
+        ptr.sfWindow_display();
+    }
+
+    sfWindowHandle getSystemHandle() {
+        return ptr.sfWindow_getSystemHandle();
+    }
+
     private sfWindow* ptr;
 }
