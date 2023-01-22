@@ -8,9 +8,8 @@ void main()
 {
 	loadSFML();
 
-	RectangleShape rectangleShape = new RectangleShape(Vector2f(50, 50));
 
-	writeln(rectangleShape.getSize()); stdout.flush();
+	RectangleShape rectangleShape = new RectangleShape(Vector2f(50, 50));
 
 	sfRenderWindow* renderWindow = sfRenderWindow_create(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
 	sfEvent event;
