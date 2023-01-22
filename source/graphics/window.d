@@ -54,5 +54,33 @@ class Window {
         return ptr.sfWindow_getSize().toVector2u();
     }
 
+    void setSize(Vector2u size) {
+        ptr.sfWindow_setSize(size.to_sfVector2u());
+    }
+
+    void setTitle(string title) {
+        ptr.sfWindow_setTitle(toStringz(title));
+    }
+
+    void setIcon(uint width, uint height, sfUint8* pixels) {
+        ptr.sfWindow_setIcon(width, height, pixels);
+    }
+
+    void setVisible(bool visible) {
+        ptr.sfWindow_setVisible(visible);
+    }
+
+    void setVerticalSyncEnabled(bool enabled) {
+        ptr.sfWindow_setVerticalSyncEnabled(enabled);
+    }
+
+    void setMouseCursorVisible(bool visible) {
+        ptr.sfWindow_setMouseCursorVisible(visible);
+    }
+
+    void setMouseCursorGrabbed(bool grabbed) {
+        ptr.sfWindow_setMouseCursorGrabbed(grabbed);
+    }
+
     private sfWindow* ptr;
 }
