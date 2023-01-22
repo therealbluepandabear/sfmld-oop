@@ -138,6 +138,10 @@ interface Drawable {
 }
 
 class Transformable {
+    this() {
+        ptr = sfTransformable_create();
+    }
+
     void setPosition(float x, float y) {
         ptr.sfTransformable_setPosition(sfVector2f(x, y));
     }
@@ -279,7 +283,17 @@ class Shape : Transformable, Drawable {
 class RectangleShape : Shape {
     this(Vector2f size) {
         _size = size;
+
         ptr = sfRectangleShape_create();
+        setSize(_size);
+    }
+
+    Vector2f getSize() {
+        return ptr.sfRectangleShape_getSize().toVector2f();
+    }
+
+    void setSize(Vector2f size) {
+        ptr.sfRectangleShape_setSize(size.to_sfVector2f());
     }
 
     private {
