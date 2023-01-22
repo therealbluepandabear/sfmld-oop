@@ -6,6 +6,16 @@ struct Vector2i {
 	int y;
 }
 
+struct Vector2f {
+	float x;
+	float y;
+}
+
+struct Vector2u {
+	uint x;
+	uint y;
+}
+
 interface RenderTarget {
 	void clear(sfColor color);
 
@@ -38,5 +48,5 @@ void main()
 {
 	loadSFML();
 
-	writeln(sfVector2f(0, 0)); stdout.flush();
+	writeln(); stdout.flush();
 }
