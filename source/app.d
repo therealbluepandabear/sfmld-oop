@@ -16,6 +16,8 @@ interface RenderTarget {
 
 	sfVector2f mapPixelToCoords(sfVector2i point, sfView* view);
 
+	void draw(Drawable drawable, sfRenderStates states);
+
 	void pushGLStates();
 
 	void popGLStates();
