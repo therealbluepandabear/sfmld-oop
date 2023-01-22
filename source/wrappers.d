@@ -261,10 +261,6 @@ class Shape : Transformable, Drawable {
         return ptr.sfShape_getOutlineThickness();
     }
 
-    size_t getPointCount() {
-        return ptr.sfShape_getPointCount();
-    }
-
     Vector2f getPoint(size_t index) {
         return ptr.sfShape_getPoint(index).toVector2f();
     }
@@ -294,6 +290,10 @@ class RectangleShape : Shape {
 
     void setSize(Vector2f size) {
         ptr.sfRectangleShape_setSize(size.to_sfVector2f());
+    }
+
+    size_t getPointCount() {
+        return ptr.sfRectangleShape_getPointCount();
     }
 
     private {
