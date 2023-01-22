@@ -75,7 +75,19 @@ interface Transformable {
 
 	float getRotation();
 
-	sfVector2f getScale();
+	Vector2f getScale();
+
+	Vector2f getOrigin();
+
+	void move(float offsetX, float offsetY);
+
+	void move(Vector2f offset);
+
+	void rotate(float angle);
+
+	void scale(float factorX, float factorY);
+
+	void scale(Vector2f factor);
 }
 
 class RectangleShape : Drawable {
