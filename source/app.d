@@ -187,18 +187,34 @@ class Shape : Transformable, Drawable {
 		return ptr.sfShape_getPointCount();
 	}
 
+	Vector2f getPoint(size_t index) {
+		return ptr.sfShape_getPoint(index).toVector2f();
+	}
+
+	sfFloatRect getLocalBounds() {
+		return ptr.sfShape_getLocalBounds();
+	}
+
+	sfFloatRect getGlobalBounds() {
+		return ptr.sfShape_getGlobalBounds();
+	}
+
 	private sfShape* ptr;
 }
 
 class RectangleShape : Shape {
 	this(Vector2f size) {
 		_size = size;
+		ptr = sfRectangleShape_create();
 	}
 
-	//override void draw(RenderTarget target, sfRenderStates states);
+	override void draw(RenderTarget target, sfRenderStates states) {
+		target.draw(this, states);
+	}
 
 	private {
 		Vector2f _size;
+		sfRectangleShape* ptr;
 	}
 }
 
