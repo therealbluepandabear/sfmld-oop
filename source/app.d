@@ -140,8 +140,38 @@ class Transformable {
 	private sfTransformable* ptr;
 }
 
-class Shape : Transformable {
+class Shape : Transformable, Drawable {
+	override void draw(RenderTarget target, sfRenderStates states);
 
+	void setTexture(sfTexture* texture, bool resetRect) {
+		ptr.sfShape_setTexture(texture, resetRect);
+	}
+
+	void setTextureRect(sfIntRect rect) {
+		ptr.sfShape_setTextureRect(rect);
+	}
+
+	void setFillColor(sfColor color) {
+		ptr.sfShape_setFillColor(color);
+	}
+
+	void setOutlineColor(sfColor color) {
+		ptr.sfShape_setOutlineColor(color);
+	}
+
+	void setOutlineThickness(float thickness) {
+		ptr.sfShape_setOutlineThickness(thickness);
+	}
+
+	const(sfTexture)* getTexture() {
+		return ptr.sfShape_getTexture();
+	}
+
+	sfIntRect getTextureRect() {
+		return ptr.sfShape_getTextureRect();
+	}
+
+	private sfShape* ptr;
 }
 
 class RectangleShape : Shape {
