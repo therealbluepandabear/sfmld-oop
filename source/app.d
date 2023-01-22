@@ -26,7 +26,7 @@ interface RenderTarget {
 }
 
 interface Drawable {
-	void draw();
+	void draw(RenderTarget target, sfRenderStates states);
 }
 
 void main()
