@@ -39,11 +39,9 @@ struct Vector3f {
 
 class RenderStates {
     this(sfBlendMode blendMode) {
-
     }
 
     this(sfTransform transform) {
-
     }
 
     this(sfTexture* texture) {
@@ -59,8 +57,13 @@ class RenderStates {
         sfTransform transform,
         sfTexture* texture,
         sfShader* shader) {
-
     }
+
+    sfBlendMode blendMode;
+
+    sfTransform transform;
+
+    sfTexture* texture;
 }
 
 interface RenderTarget {
@@ -78,7 +81,7 @@ interface RenderTarget {
 
     Vector2f mapPixelToCoords(Vector2i point, sfView* view);
 
-    void draw(Drawable drawable, sfRenderStates states);
+    void draw(Drawable drawable, RenderStates states);
 
     void pushGLStates();
 
@@ -88,7 +91,7 @@ interface RenderTarget {
 }
 
 interface Drawable {
-    void draw(RenderTarget target, sfRenderStates states);
+    void draw(RenderTarget target, RenderStates states);
 }
 
 class Transformable {
@@ -168,7 +171,8 @@ class Transformable {
 }
 
 class Shape : Transformable, Drawable {
-    override void draw(RenderTarget target, sfRenderStates states);
+    override void draw(RenderTarget target, RenderStates states) {
+    }
 
     void setTexture(sfTexture* texture, bool resetRect) {
         ptr.sfShape_setTexture(texture, resetRect);
@@ -233,10 +237,6 @@ class RectangleShape : Shape {
     this(Vector2f size) {
         _size = size;
         ptr = sfRectangleShape_create();
-    }
-
-    override void draw(RenderTarget target, sfRenderStates states) {
-        target.draw(this, states);
     }
 
     private {
