@@ -1,6 +1,8 @@
 import std.stdio;
 import bindbc.sfml;
 import wrappers;
+import graphics.rectangleshape;
+import system.vector2f;
 
 void main()
 {

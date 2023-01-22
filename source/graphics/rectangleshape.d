@@ -2,6 +2,7 @@ module graphics.rectangleshape;
 
 import graphics.shape;
 import system.vector2f;
+import bindbc.sfml;
 
 class RectangleShape : Shape {
     this(Vector2f size) {

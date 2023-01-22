@@ -1,5 +1,7 @@
 module graphics.floatrect;
 
+import bindbc.sfml;
+
 struct FloatRect {
     float left;
     float top;
@@ -7,7 +9,7 @@ struct FloatRect {
     float height;
 }
 
-private FloatRect toFloatRect(sfFloatRect floatRect) {
+FloatRect toFloatRect(sfFloatRect floatRect) {
     return FloatRect(
         floatRect.left,
         floatRect.top,

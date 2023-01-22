@@ -6,6 +6,8 @@ import graphics.intrect;
 import graphics.floatrect;
 import graphics.rendertarget;
 import graphics.transformable;
+import graphics.drawable;
+import graphics.renderstates;
 import system.vector2f;
 import bindbc.sfml;
 

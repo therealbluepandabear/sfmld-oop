@@ -8,7 +8,7 @@ struct IntRect {
     int width;
     int height;
 
-    private sfIntRect to_sfIntRect() {
+    sfIntRect to_sfIntRect() {
         return sfIntRect(
             left,
             top,
@@ -18,7 +18,7 @@ struct IntRect {
     }
 }
 
-private IntRect toIntRect(sfIntRect intRect) {
+IntRect toIntRect(sfIntRect intRect) {
     return IntRect(
         intRect.left,
         intRect.top,
