@@ -39,9 +39,9 @@ interface RenderTarget {
 
 	sfIntRect getViewport(sfView* view);
 
-	sfVector2f mapPixelToCoords(Vector2i point);
+	Vector2f mapPixelToCoords(Vector2i point);
 
-	sfVector2f mapPixelToCoords(Vector2i point, sfView* view);
+	Vector2f mapPixelToCoords(Vector2i point, sfView* view);
 
 	void draw(Drawable drawable, sfRenderStates states);
 
@@ -60,6 +60,22 @@ interface Transformable {
 	void setPosition(float x, float y);
 
 	void setPosition(Vector2f position);
+
+	void setRotation(float angle);
+
+	void setScale(float factorX, float factorY);
+
+	void setScale(Vector2f factors);
+
+	void setOrigin(float x, float y);
+
+	void setOrigin(Vector2f origin);
+
+	Vector2f getPosition();
+
+	float getRotation();
+
+	sfVector2f getScale();
 }
 
 class RectangleShape : Drawable {
