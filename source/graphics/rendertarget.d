@@ -13,9 +13,9 @@ interface RenderTarget {
 
     void setView(sfView* view);
 
-    sfView* getView();
+    const(sfView)* getView();
 
-    sfView* getDefaultView();
+    const(sfView)* getDefaultView();
 
     IntRect getViewport(sfView* view);
 
