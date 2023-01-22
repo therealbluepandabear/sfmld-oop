@@ -6,6 +6,10 @@ struct Vector2i {
 	int y;
 }
 
+private Vector2f toVector2f(sfVector2f vector) {
+	return Vector2f(vector.x, vector.y);
+}
+
 struct Vector2f {
 	float x;
 	float y;
@@ -89,23 +93,41 @@ class Transformable {
 		ptr.sfTransformable_setOrigin(origin.to_sfVector2f());
 	}
 
-	Vector2f getPosition();
+	Vector2f getPosition() {
+		return ptr.sfTransformable_getPosition().toVector2f();
+	}
 
-	float getRotation();
+	float getRotation() {
+		return ptr.sfTransformable_getRotation();
+	}
 
-	Vector2f getScale();
+	Vector2f getScale() {
+		return ptr.sfTransformable_getScale().toVector2f();
+	}
 
-	Vector2f getOrigin();
+	Vector2f getOrigin() {
+		return ptr.sfTransformable_getOrigin().toVector2f();
+	}
 
-	void move(float offsetX, float offsetY);
+	void move(float offsetX, float offsetY) {
+		ptr.sfTransformable_move(sfVector2f(offsetX, offsetY));
+	}
 
-	void move(Vector2f offset);
+	void move(Vector2f offset) {
+		ptr.sfTransformable_move(offset.to_sfVector2f());
+	}
 
-	void rotate(float angle);
+	void rotate(float angle) {
+		ptr.sfTransformable_rotate(angle);
+	}
 
-	void scale(float factorX, float factorY);
+	void scale(float factorX, float factorY) {
+		ptr.sfTransformable_scale(sfVector2f(factorX, factorY));
+	}
 
-	void scale(Vector2f factor);
+	void scale(Vector2f factor) {
+		ptr.sfTransformable_scale(factor.to_sfVector2f());
+	}
 
 	sfTransform getTransform();
 
