@@ -8,8 +8,31 @@ struct Event {
         uint height;
     }
 
-
     struct KeyEvent {
+
+    }
+
+    struct TextEvent {
+
+    }
+
+    struct MouseMoveEvent {
+
+    }
+
+    struct MouseButtonEvent {
+
+    }
+
+    struct MouseWheelScrollEvent {
+
+    }
+
+    struct JoystickConnectEvent {
+
+    }
+
+    struct JoystickMoveEvent {
 
     }
 
