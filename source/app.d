@@ -56,7 +56,7 @@ interface Drawable {
 	void draw(RenderTarget target, sfRenderStates states);
 }
 
-class Transformable {
+interface Transformable {
 	void setPosition(float x, float y);
 
 	void setPosition(Vector2f position);
