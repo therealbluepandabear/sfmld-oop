@@ -39,9 +39,9 @@ interface RenderTarget {
 
 	sfIntRect getViewport(sfView* view);
 
-	sfVector2f mapPixelToCoords(sfVector2i point);
+	sfVector2f mapPixelToCoords(Vector2i point);
 
-	sfVector2f mapPixelToCoords(sfVector2i point, sfView* view);
+	sfVector2f mapPixelToCoords(Vector2i point, sfView* view);
 
 	void draw(Drawable drawable, sfRenderStates states);
 
@@ -57,7 +57,15 @@ interface Drawable {
 }
 
 class RectangleShape : Drawable {
+	this(Vector2f size) {
+		_size = size;
+	}
+
 	override void draw(RenderTarget target, sfRenderStates states);
+
+	private {
+		Vector2f _size;
+	}
 }
 
 void main()
