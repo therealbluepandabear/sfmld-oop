@@ -171,6 +171,22 @@ class Shape : Transformable, Drawable {
 		return ptr.sfShape_getTextureRect();
 	}
 
+	sfColor getFillColor() {
+		return ptr.sfShape_getFillColor();
+	}
+
+	sfColor getOutlineColor() {
+		return ptr.sfShape_getOutlineColor();
+	}
+
+	float getOutlineThickness() {
+		return ptr.sfShape_getOutlineThickness();
+	}
+
+	size_t getPointCount() {
+		return ptr.sfShape_getPointCount();
+	}
+
 	private sfShape* ptr;
 }
 
