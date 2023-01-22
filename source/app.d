@@ -1,6 +1,11 @@
 import std.stdio;
 import bindbc.sfml;
 
+struct Vector2i {
+	int x;
+	int y;
+}
+
 interface RenderTarget {
 	void clear(sfColor color);
 
@@ -31,6 +36,7 @@ interface Drawable {
 
 void main()
 {
-	sfRectangleShape_create();
-	writeln("Edit source/app.d to start your project.");
+	loadSFML();
+
+	writeln(sfVector2f(0, 0)); stdout.flush();
 }
