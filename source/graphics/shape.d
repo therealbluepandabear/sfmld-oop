@@ -1,6 +1,13 @@
 module graphics.shape;
 
 import wrappers;
+import graphics.color;
+import graphics.intrect;
+import graphics.floatrect;
+import graphics.rendertarget;
+import graphics.transformable;
+import system.vector2f;
+import bindbc.sfml;
 
 class Shape : Transformable, Drawable {
     override void draw(RenderTarget target, RenderStates states) {
@@ -14,11 +21,11 @@ class Shape : Transformable, Drawable {
         ptr.sfShape_setTextureRect(rect.to_sfIntRect());
     }
 
-    void setFillColor(sfColor color) {
+    void setFillColor(Color color) {
         ptr.sfShape_setFillColor(color);
     }
 
-    void setOutlineColor(sfColor color) {
+    void setOutlineColor(Color color) {
         ptr.sfShape_setOutlineColor(color);
     }
 
@@ -34,11 +41,11 @@ class Shape : Transformable, Drawable {
         return ptr.sfShape_getTextureRect().toIntRect();
     }
 
-    sfColor getFillColor() {
+    Color getFillColor() {
         return ptr.sfShape_getFillColor();
     }
 
-    sfColor getOutlineColor() {
+    Color getOutlineColor() {
         return ptr.sfShape_getOutlineColor();
     }
 
