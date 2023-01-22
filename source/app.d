@@ -73,13 +73,21 @@ class Transformable {
 		ptr.sfTransformable_setRotation(angle);
 	}
 
-	void setScale(float factorX, float factorY);
+	void setScale(float factorX, float factorY) {
+		ptr.sfTransformable_setScale(sfVector2f(factorX, factorY));
+	}
 
-	void setScale(Vector2f factors);
+	void setScale(Vector2f factors) {
+		ptr.sfTransformable_setScale(factors.to_sfVector2f());
+	}
 
-	void setOrigin(float x, float y);
+	void setOrigin(float x, float y) {
+		ptr.sfTransformable_setOrigin(sfVector2f(x, y));
+	}
 
-	void setOrigin(Vector2f origin);
+	void setOrigin(Vector2f origin) {
+		ptr.sfTransformable_setOrigin(origin.to_sfVector2f());
+	}
 
 	Vector2f getPosition();
 
