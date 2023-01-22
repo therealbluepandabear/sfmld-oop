@@ -129,9 +129,13 @@ class Transformable {
 		ptr.sfTransformable_scale(factor.to_sfVector2f());
 	}
 
-	sfTransform getTransform();
+	sfTransform getTransform() {
+		return ptr.sfTransformable_getTransform();
+	}
 
-	sfTransform getInverseTransform();
+	sfTransform getInverseTransform() {
+		return ptr.sfTransformable_getInverseTransform();
+	}
 
 	private sfTransformable* ptr;
 }
