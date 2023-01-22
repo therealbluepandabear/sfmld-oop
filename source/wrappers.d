@@ -2,11 +2,6 @@ module wrappers;
 
 import bindbc.sfml;
 
-struct Vector2u {
-    uint x;
-    uint y;
-}
-
 struct Vector3i {
     int x;
     int y;

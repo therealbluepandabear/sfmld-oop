@@ -2,6 +2,8 @@ module graphics.window;
 
 import bindbc.sfml;
 import std.string;
+import system.vector2i;
+import system.vector2u;
 
 class Window {
     this(sfVideoMode mode, string title, uint style, sfContextSettings* settings) {
@@ -38,6 +40,18 @@ class Window {
 
     bool waitEvent(sfEvent* event) {
         return cast(bool)(ptr.sfWindow_waitEvent(event));
+    }
+
+    Vector2i getPosition() {
+        return ptr.sfWindow_getPosition().toVector2i();
+    }
+
+    void setPosition(Vector2i position) {
+        ptr.sfWindow_setPosition(position.to_sfVector2i());
+    }
+
+    Vector2u getSize() {
+        return ptr.sfWindow_getSize().toVector2u();
     }
 
     private sfWindow* ptr;
