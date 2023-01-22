@@ -1,6 +1,6 @@
 module graphics.renderwindow;
 
-import graphics.window;
+import window.window;
 import graphics.rendertarget;
 import graphics.color;
 import graphics.intrect;

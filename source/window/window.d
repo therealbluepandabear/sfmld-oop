@@ -1,4 +1,4 @@
-module graphics.window;
+module window.window;
 
 import bindbc.sfml;
 import std.string;
