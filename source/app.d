@@ -56,10 +56,14 @@ interface Drawable {
 	void draw(RenderTarget target, sfRenderStates states);
 }
 
-interface Transformable {
-	void setPosition(float x, float y);
+class Transformable {
+	void setPosition(float x, float y) {
+		ptr.sfTransformable_setPosition(sfVector2f(x, y));
+	}
 
-	void setPosition(Vector2f position);
+	void setPosition(Vector2f position) {
+		ptr.sfTransformable_setPosition(sfVector2f(position.x, position.y));
+	}
 
 	void setRotation(float angle);
 
@@ -88,14 +92,24 @@ interface Transformable {
 	void scale(float factorX, float factorY);
 
 	void scale(Vector2f factor);
+
+	sfTransform getTransform();
+
+	sfTransform getInverseTransform();
+
+	private sfTransformable* ptr;
 }
 
-class RectangleShape : Drawable {
+class Shape : Transformable {
+
+}
+
+class RectangleShape : Shape {
 	this(Vector2f size) {
 		_size = size;
 	}
 
-	override void draw(RenderTarget target, sfRenderStates states);
+	//override void draw(RenderTarget target, sfRenderStates states);
 
 	private {
 		Vector2f _size;
