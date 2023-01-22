@@ -16,6 +16,18 @@ struct Vector2u {
 	uint y;
 }
 
+struct Vector3i {
+	int x;
+	int y;
+	int z;
+}
+
+struct Vector3f {
+	float x;
+	float y;
+	float z;
+}
+
 interface RenderTarget {
 	void clear(sfColor color);
 
@@ -42,6 +54,10 @@ interface RenderTarget {
 
 interface Drawable {
 	void draw(RenderTarget target, sfRenderStates states);
+}
+
+class RectangleShape : Drawable {
+	override void draw(RenderTarget target, sfRenderStates states);
 }
 
 void main()
