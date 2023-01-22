@@ -17,5 +17,13 @@ struct Color {
     static const(Color) Cyan = Color(0, 255, 255, 255);
     static const(Color) transparent = Color(0, 0, 0, 0);
 
+    sfColor to_sfColor() {
+        return ptr;
+    }
+
     private sfColor ptr;
+}
+
+Color toColor(sfColor color) {
+    return Color(color.r, color.g, color.b, color.a);
 }

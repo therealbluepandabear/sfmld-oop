@@ -24,11 +24,11 @@ class Shape : Transformable, Drawable {
     }
 
     void setFillColor(Color color) {
-        ptr.sfShape_setFillColor(color);
+        ptr.sfShape_setFillColor(color.to_sfColor());
     }
 
     void setOutlineColor(Color color) {
-        ptr.sfShape_setOutlineColor(color);
+        ptr.sfShape_setOutlineColor(color.to_sfColor());
     }
 
     void setOutlineThickness(float thickness) {
@@ -44,11 +44,11 @@ class Shape : Transformable, Drawable {
     }
 
     Color getFillColor() {
-        return ptr.sfShape_getFillColor();
+        return ptr.sfShape_getFillColor().toColor();
     }
 
     Color getOutlineColor() {
-        return ptr.sfShape_getOutlineColor();
+        return ptr.sfShape_getOutlineColor().toColor();
     }
 
     float getOutlineThickness() {
