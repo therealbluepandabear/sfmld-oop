@@ -16,7 +16,17 @@ private FloatRect toFloatRect(sfFloatRect floatRect) {
         floatRect.left,
         floatRect.top,
         floatRect.width,
-        floatRect.height);
+        floatRect.height
+    );
+}
+
+private IntRect toIntRect(sfIntRect intRect) {
+    return IntRect(
+        intRect.left,
+        intRect.top,
+        intRect.width,
+        intRect.height
+    );
 }
 
 struct Vector2f {
@@ -52,6 +62,22 @@ struct FloatRect {
     float height;
 }
 
+struct IntRect {
+    int left;
+    int top;
+    int width;
+    int height;
+
+    private sfIntRect to_sfIntRect() {
+        return sfIntRect(
+            left,
+            top,
+            width,
+            height
+        );
+    }
+}
+
 class RenderStates {
     this(sfBlendMode blendMode) {
     }
@@ -71,7 +97,9 @@ class RenderStates {
         sfBlendMode blendMode,
         sfTransform transform,
         sfTexture* texture,
-        sfShader* shader) {
+        sfShader* shader
+    ) {
+
     }
 
     sfBlendMode blendMode;
@@ -90,7 +118,7 @@ interface RenderTarget {
 
     sfView* getDefaultView();
 
-    sfIntRect getViewport(sfView* view);
+    IntRect getViewport(sfView* view);
 
     Vector2f mapPixelToCoords(Vector2i point);
 
@@ -193,8 +221,8 @@ class Shape : Transformable, Drawable {
         ptr.sfShape_setTexture(texture, resetRect);
     }
 
-    void setTextureRect(sfIntRect rect) {
-        ptr.sfShape_setTextureRect(rect);
+    void setTextureRect(IntRect rect) {
+        ptr.sfShape_setTextureRect(rect.to_sfIntRect());
     }
 
     void setFillColor(sfColor color) {
@@ -213,8 +241,8 @@ class Shape : Transformable, Drawable {
         return ptr.sfShape_getTexture();
     }
 
-    sfIntRect getTextureRect() {
-        return ptr.sfShape_getTextureRect();
+    IntRect getTextureRect() {
+        return ptr.sfShape_getTextureRect().toIntRect();
     }
 
     sfColor getFillColor() {
