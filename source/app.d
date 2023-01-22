@@ -9,6 +9,10 @@ struct Vector2i {
 struct Vector2f {
 	float x;
 	float y;
+
+	private sfVector2f to_sfVector2f() {
+		return sfVector2f(x, y);
+	}
 }
 
 struct Vector2u {
@@ -62,10 +66,12 @@ class Transformable {
 	}
 
 	void setPosition(Vector2f position) {
-		ptr.sfTransformable_setPosition(sfVector2f(position.x, position.y));
+		ptr.sfTransformable_setPosition(position.to_sfVector2f());
 	}
 
-	void setRotation(float angle);
+	void setRotation(float angle) {
+		ptr.sfTransformable_setRotation(angle);
+	}
 
 	void setScale(float factorX, float factorY);
 
