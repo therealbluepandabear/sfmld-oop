@@ -1,7 +1,15 @@
 module graphics.rendertarget;
 
+import graphics.color;
+import graphics.drawable;
+import graphics.renderstates;
+import graphics.intrect;
+import system.vector2i;
+import system.vector2f;
+import bindbc.sfml;
+
 interface RenderTarget {
-    void clear(sfColor color);
+    void clear(Color color);
 
     void setView(sfView* view);
 
