@@ -1,7 +1,8 @@
 module window.event;
 
 import bindbc.sfml;
-import system.keyboard;
+import window.keyboard;
+import window.sensor;
 
 struct Event {
     struct SizeEvent {
@@ -55,6 +56,7 @@ struct Event {
     }
 
     struct SensorEvent {
+        Sensor.Type type;
         int x;
         int y;
         int z;

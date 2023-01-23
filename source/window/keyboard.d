@@ -1,4 +1,4 @@
-module system.keyboard;
+module window.keyboard;
 
 import bindbc.sfml;
 import std.conv;
