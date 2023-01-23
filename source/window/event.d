@@ -76,4 +76,18 @@ struct Event {
     }
 
     EventType type;
+
+    union {
+        SizeEvent size;
+        KeyEvent key;
+        TextEvent text;
+        MouseMoveEvent mouseMove;
+        MouseButtonEvent mouseButton;
+        MouseWheelScrollEvent mouseWheelScroll;
+        JoystickMoveEvent joystickMove;
+        JoystickButtonEvent joystickButton;
+        JoystickConnectEvent joystickConnect;
+        TouchEvent touch;
+        SensorEvent sensor;
+    }
 }
