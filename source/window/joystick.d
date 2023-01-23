@@ -43,6 +43,18 @@ final abstract class Joystick {
             }
         }
 
+        bool isConnected(uint joystick) {
+            return cast(bool)(sfJoystick_isConnected(joystick));
+        }
+
+        uint getButtonCount(uint joystick) {
+            return sfJoystick_getButtonCount(joystick);
+        }
+
+        bool hasAxis(uint joystick, Axis axis) {
+            return cast(bool)(sfJoystick_hasAxis(joystick, to_sfJoystickAxis(axis)));
+        }
+
         bool isButtonPressed(uint joystick, uint button) {
             return cast(bool)(sfJoystick_isButtonPressed(joystick, button));
         }
