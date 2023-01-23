@@ -1,4 +1,4 @@
-module graphics.keyboard;
+module system.keyboard;
 
 import bindbc.sfml;
 import std.conv;
@@ -108,7 +108,7 @@ final abstract class Keyboard {
         F15,
         Pause,
 
-        KeyCount,
+        KeyCount
     }
 
     static {
