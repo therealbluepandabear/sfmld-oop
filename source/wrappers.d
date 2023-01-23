@@ -7,10 +7,3 @@ struct Vector3i {
     int y;
     int z;
 }
-
-struct Vector3f {
-    float x;
-    float y;
-    float z;
-}
-

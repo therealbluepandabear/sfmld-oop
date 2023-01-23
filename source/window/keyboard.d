@@ -112,8 +112,14 @@ final abstract class Keyboard {
     }
 
     static {
+        private sfKeyCode to_sfKeyCode(Key key) {
+            return to!sfKeyCode(to!int(key));
+        }
+
         bool isKeyPressed(Key key) {
-            return cast(bool)(sfKeyboard_isKeyPressed(to!sfKeyCode(to!int(key))));
+            return cast(bool)(
+                sfKeyboard_isKeyPressed(to_sfKeyCode(key))
+            );
         }
     }
 }
