@@ -3,6 +3,7 @@ module window.event;
 import bindbc.sfml;
 import window.keyboard;
 import window.sensor;
+import window.joystick;
 
 struct Event {
     struct SizeEvent {
@@ -32,16 +33,19 @@ struct Event {
     }
 
     struct MouseWheelScrollEvent {
-
+        float delta;
+        int x;
+        int y;
     }
 
     struct JoystickConnectEvent {
-
+        uint joystickId;
     }
 
     struct JoystickMoveEvent {
         uint joystickId;
-
+        Joystick.Axis axis;
+        float position;
     }
 
     struct JoystickButtonEvent {
