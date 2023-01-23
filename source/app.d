@@ -5,17 +5,18 @@ import graphics.rectangleshape;
 import system.vector2f;
 import graphics.color;
 import graphics.renderwindow;
+import graphics.shape;
+import graphics.rectangleshape;
+import graphics.renderstates;
 
 void main() {
 	loadSFML();
 
-	RectangleShape rectangleShape = new RectangleShape(Vector2f(50, 50));
+	Shape rectangleShape = new RectangleShape(Vector2f(50, 50));
+	rectangleShape.setFillColor(Color.Blue);
 
 	RenderWindow renderWindow = new RenderWindow(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
 	sfEvent event;
-
-	import std.stdio;
-	writeln(renderWindow.isOpen()); stdout.flush();
 
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(&event)) {
@@ -25,6 +26,7 @@ void main() {
 		}
 
 		renderWindow.clear(Color.Yellow);
+		rectangleShape.draw(renderWindow, new RenderStates());
 		renderWindow.display();
 	}
 }

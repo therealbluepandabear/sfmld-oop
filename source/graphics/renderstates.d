@@ -3,6 +3,10 @@ module graphics.renderstates;
 import bindbc.sfml;
 
 class RenderStates {
+    this() {
+
+    }
+
     this(sfBlendMode blendMode) {
     }
 

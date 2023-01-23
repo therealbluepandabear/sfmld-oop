@@ -8,11 +8,20 @@ import graphics.rendertarget;
 import graphics.transformable;
 import graphics.drawable;
 import graphics.renderstates;
+import graphics.renderwindow;
 import system.vector2f;
 import bindbc.sfml;
 
 class Shape : Transformable, Drawable {
+    this() {
+        ptr = sfShape_create();
+    }
+
     override void draw(RenderTarget target, RenderStates states) {
+        if (is(typeof(target) == RenderWindow)) {
+            RenderWindow targetAsRenderWindow = cast(RenderWindow)target;
+            targetAsRenderWindow.ptr.sfRenderWindow_drawShape(ptr, null);
+        }
     }
 
     void setTexture(sfTexture* texture, bool resetRect) {
@@ -53,6 +62,10 @@ class Shape : Transformable, Drawable {
 
     float getOutlineThickness() {
         return ptr.sfShape_getOutlineThickness();
+    }
+
+    size_t getPointCount() {
+        return ptr.sfShape_getPointCount();
     }
 
     Vector2f getPoint(size_t index) {

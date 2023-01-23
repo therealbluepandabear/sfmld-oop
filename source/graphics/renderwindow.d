@@ -85,5 +85,5 @@ class RenderWindow : Window, RenderTarget {
         }
     }
 
-    private sfRenderWindow* ptr;
+    sfRenderWindow* ptr;
 }

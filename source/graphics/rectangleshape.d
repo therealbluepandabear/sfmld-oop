@@ -18,11 +18,17 @@ class RectangleShape : Shape {
         _size = size;
     }
 
-    override Vector2f getPoint(size_t index) {
-        sfRectangleShape* rect = sfRectangleShape_create();
-        rect.sfRectangleShape_setSize(_size.to_sfVector2f());
+    size_t getPointCount() {
+        return 4;
+    }
 
-        return rect.sfRectangleShape_getPoint(index).toVector2f();
+    override Vector2f getPoint(size_t index) {
+        final switch (index) {
+            case 0: return Vector2f(0, 0);
+            case 1: return Vector2f(_size.x, 0);
+            case 2: return Vector2f(_size.x, _size.y);
+            case 3: return Vector2f(0, _size.y);
+        }
     }
 
     private {
