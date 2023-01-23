@@ -1,6 +1,7 @@
 module window.event;
 
 import bindbc.sfml;
+import system.keyboard;
 
 struct Event {
     struct SizeEvent {
@@ -9,15 +10,20 @@ struct Event {
     }
 
     struct KeyEvent {
-
+        Keyboard.Key code;
+        bool alt;
+        bool control;
+        bool shift;
+        bool system;
     }
 
     struct TextEvent {
-
+        dchar unicode;
     }
 
     struct MouseMoveEvent {
-
+        int x;
+        int y;
     }
 
     struct MouseButtonEvent {
@@ -33,11 +39,13 @@ struct Event {
     }
 
     struct JoystickMoveEvent {
+        uint joystickId;
 
     }
 
     struct JoystickButtonEvent {
-
+        uint joystickId;
+        uint button;
     }
 
     struct TouchEvent {
@@ -47,7 +55,9 @@ struct Event {
     }
 
     struct SensorEvent {
-
+        int x;
+        int y;
+        int z;
     }
 
     enum EventType {
