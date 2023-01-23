@@ -6,6 +6,10 @@ import system.vector2i;
 import system.vector2u;
 
 class Window {
+    this() {
+
+    }
+
     this(sfVideoMode mode, string title, uint style, sfContextSettings* settings) {
         ptr = sfWindow_create(mode, toStringz(title), style, settings);
     }

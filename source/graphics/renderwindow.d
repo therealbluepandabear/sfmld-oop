@@ -9,21 +9,18 @@ import graphics.renderstates;
 import system.vector2i;
 import system.vector2f;
 import bindbc.sfml;
+import std.string;
 
 class RenderWindow : Window, RenderTarget {
     this(sfVideoMode mode, string title, uint style, sfContextSettings* settings) {
-        super(mode, title, style, settings);
+        ptr = sfRenderWindow_create(mode, toStringz(title), style, settings);
     }
 
     this(sfWindowHandle handle, sfContextSettings* settings) {
-        super(handle, settings);
+        ptr = sfRenderWindow_createFromHandle(handle, settings);
     }
 
     override {
-        void clear(Color color) {
-            ptr.sfRenderWindow_clear(color.to_sfColor());
-        }
-
         void setView(sfView* view) {
             ptr.sfRenderWindow_setView(view);
         }
@@ -65,6 +62,26 @@ class RenderWindow : Window, RenderTarget {
 
         void resetGLStates() {
             ptr.sfRenderWindow_resetGLStates();
+        }
+
+        void close() {
+            ptr.sfRenderWindow_close();
+        }
+
+        void clear(Color color) {
+            ptr.sfRenderWindow_clear(color.to_sfColor());
+        }
+
+        bool isOpen() {
+            return cast(bool)(ptr.sfRenderWindow_isOpen());
+        }
+
+        bool pollEvent(sfEvent* event) {
+            return cast(bool)(ptr.sfRenderWindow_pollEvent(event));
+        }
+
+        void display() {
+            ptr.sfRenderWindow_display();
         }
     }
 

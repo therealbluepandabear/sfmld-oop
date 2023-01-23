@@ -6,15 +6,16 @@ import system.vector2f;
 import graphics.color;
 import graphics.renderwindow;
 
-void main()
-{
+void main() {
 	loadSFML();
-
 
 	RectangleShape rectangleShape = new RectangleShape(Vector2f(50, 50));
 
 	RenderWindow renderWindow = new RenderWindow(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
 	sfEvent event;
+
+	import std.stdio;
+	writeln(renderWindow.isOpen()); stdout.flush();
 
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(&event)) {
