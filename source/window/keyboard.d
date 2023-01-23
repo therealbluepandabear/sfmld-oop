@@ -117,9 +117,7 @@ final abstract class Keyboard {
         }
 
         bool isKeyPressed(Key key) {
-            return cast(bool)(
-                sfKeyboard_isKeyPressed(to_sfKeyCode(key))
-            );
+            return cast(bool)(sfKeyboard_isKeyPressed(to_sfKeyCode(key)));
         }
     }
 }

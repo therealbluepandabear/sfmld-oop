@@ -22,9 +22,7 @@ final abstract class Sensor {
         }
 
         bool isAvailable(Type sensor) {
-            return cast(bool)(
-                sfSensor_isAvailable(to_sfSensorType(sensor))
-            );
+            return cast(bool)(sfSensor_isAvailable(to_sfSensorType(sensor)));
         }
 
         void setEnabled(Type sensor, bool enabled) {
