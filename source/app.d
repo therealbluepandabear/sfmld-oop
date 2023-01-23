@@ -3,6 +3,8 @@ import bindbc.sfml;
 import wrappers;
 import graphics.rectangleshape;
 import system.vector2f;
+import graphics.color;
+import graphics.renderwindow;
 
 void main()
 {
@@ -11,17 +13,17 @@ void main()
 
 	RectangleShape rectangleShape = new RectangleShape(Vector2f(50, 50));
 
-	sfRenderWindow* renderWindow = sfRenderWindow_create(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
+	RenderWindow renderWindow = new RenderWindow(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
 	sfEvent event;
 
-	while (renderWindow.sfRenderWindow_isOpen()) {
-		while (renderWindow.sfRenderWindow_pollEvent(&event)) {
+	while (renderWindow.isOpen()) {
+		while (renderWindow.pollEvent(&event)) {
 			if (event.type == sfEventType.sfEvtClosed) {
-				renderWindow.sfRenderWindow_close();
+				renderWindow.close();
 			}
 		}
 
-		renderWindow.sfRenderWindow_clear(sfYellow);
-		renderWindow.sfRenderWindow_display();
+		renderWindow.clear(Color.Yellow);
+		renderWindow.display();
 	}
 }
