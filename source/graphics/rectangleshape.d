@@ -7,25 +7,25 @@ import bindbc.sfml;
 class RectangleShape : Shape {
     this(Vector2f size) {
         _size = size;
-
-        ptr = sfRectangleShape_create();
         setSize(_size);
     }
 
     Vector2f getSize() {
-        return ptr.sfRectangleShape_getSize().toVector2f();
+        return _size;
     }
 
     void setSize(Vector2f size) {
-        ptr.sfRectangleShape_setSize(size.to_sfVector2f());
+        _size = size;
     }
 
-    size_t getPointCount() {
-        return ptr.sfRectangleShape_getPointCount();
+    override Vector2f getPoint(size_t index) {
+        sfRectangleShape* rect = sfRectangleShape_create();
+        rect.sfRectangleShape_setSize(_size.to_sfVector2f());
+
+        return rect.sfRectangleShape_getPoint(index).toVector2f();
     }
 
     private {
         Vector2f _size;
-        sfRectangleShape* ptr;
     }
 }
