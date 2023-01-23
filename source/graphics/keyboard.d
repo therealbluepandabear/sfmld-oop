@@ -111,10 +111,6 @@ final abstract class Keyboard {
         KeyCount,
     }
 
-    private static {
-
-    }
-
     static {
         bool isKeyPressed(Key key) {
             return cast(bool)(sfKeyboard_isKeyPressed(to!sfKeyCode(to!int(key))));
