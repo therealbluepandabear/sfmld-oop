@@ -36,6 +36,7 @@ struct Event {
     }
 
     struct MouseWheelScrollEvent {
+        Mouse.Wheel wheel;
         float delta;
         int x;
         int y;
