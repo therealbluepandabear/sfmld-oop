@@ -9,6 +9,7 @@ import graphics.shape;
 import graphics.rectangleshape;
 import graphics.circleshape;
 import graphics.renderstates;
+import window.videomode;
 
 void main() {
 	loadSFML();
@@ -20,7 +21,7 @@ void main() {
 	CircleShape circle = new CircleShape(30);
 	circle.setFillColor(Color.Red);
 
-	RenderWindow renderWindow = new RenderWindow(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
+	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
 	sfEvent event;
 
 	while (renderWindow.isOpen()) {

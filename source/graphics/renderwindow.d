@@ -1,6 +1,7 @@
 module graphics.renderwindow;
 
 import window.window;
+import window.videomode;
 import graphics.rendertarget;
 import graphics.color;
 import graphics.intrect;
@@ -12,8 +13,8 @@ import bindbc.sfml;
 import std.string;
 
 class RenderWindow : Window, RenderTarget {
-    this(sfVideoMode mode, string title, uint style, sfContextSettings* settings) {
-        ptr = sfRenderWindow_create(mode, toStringz(title), style, settings);
+    this(VideoMode mode, string title, uint style, sfContextSettings* settings) {
+        ptr = sfRenderWindow_create(sfVideoMode(mode.modeWidth, mode.modeHeight, mode.modeBitsPerPixel), toStringz(title), style, settings);
     }
 
     this(sfWindowHandle handle, sfContextSettings* settings) {

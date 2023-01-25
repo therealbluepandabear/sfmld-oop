@@ -5,9 +5,9 @@ import bindbc.sfml;
 struct VideoMode {
     uint modeWidth;
     uint modeHeight;
-    uint modePitsPerPixel = 32;
+    uint modeBitsPerPixel = 32;
 
     bool isValid() {
-        return cast(bool)(sfVideoMode_isValid(sfVideoMode(modeWidth, modeHeight, modePitsPerPixel)));
+        return cast(bool)(sfVideoMode_isValid(sfVideoMode(modeWidth, modeHeight, modeBitsPerPixel)));
     }
 }
