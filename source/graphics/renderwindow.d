@@ -46,10 +46,7 @@ class RenderWindow : Window, RenderTarget {
         }
 
         Vector2f mapPixelToCoords(Vector2i point) {
-            return ptr.sfRenderWindow_mapPixelToCoords(
-                point.to_sfVector2i(),
-                ptr.sfRenderWindow_getView()
-            ).toVector2f();
+            return ptr.sfRenderWindow_mapPixelToCoords(point.to_sfVector2i(), ptr.sfRenderWindow_getView()).toVector2f();
         }
 
         Vector2f mapPixelToCoords(Vector2i point, sfView* view) {
