@@ -9,6 +9,7 @@ import graphics.shape;
 import graphics.rectangleshape;
 import graphics.circleshape;
 import graphics.renderstates;
+import graphics.convexshape;
 import window.videomode;
 import window.windowstyle;
 
@@ -19,8 +20,12 @@ void main() {
 	rectangleShape.setPosition(Vector2f(50, 50));
 	rectangleShape.setFillColor(Color.Blue);
 
-	CircleShape circle = new CircleShape(30);
-	circle.setFillColor(Color.Red);
+	ConvexShape cs = new ConvexShape(3);
+	cs.setPoint(0, Vector2f(0, 0));
+	cs.setPoint(1, Vector2f(30, 0));
+	cs.setPoint(2, Vector2f(90, 50));
+	cs.setOutlineThickness(3);
+	cs.setOutlineColor(Color.Blue);
 
 	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests");
 	sfEvent event;
@@ -33,7 +38,7 @@ void main() {
 		}
 
 		renderWindow.clear(Color.Yellow);
-		renderWindow.draw(circle, null);
+		renderWindow.draw(cs, null);
 		renderWindow.display();
 	}
 }
