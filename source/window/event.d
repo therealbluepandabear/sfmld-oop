@@ -4,6 +4,7 @@ import bindbc.sfml;
 import window.keyboard;
 import window.sensor;
 import window.joystick;
+import window.mouse;
 
 struct Event {
     struct SizeEvent {
@@ -29,7 +30,9 @@ struct Event {
     }
 
     struct MouseButtonEvent {
-
+        Mouse.Button button;
+        int x;
+        int y;
     }
 
     struct MouseWheelScrollEvent {
