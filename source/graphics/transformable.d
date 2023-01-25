@@ -10,47 +10,61 @@ class Transformable {
     }
 
     void setPosition(float x, float y) {
-        ptr.sfTransformable_setPosition(sfVector2f(x, y));
+        _position = Vector2f(x, y);
+
+        updateTransform();
     }
 
     void setPosition(Vector2f position) {
-        ptr.sfTransformable_setPosition(position.to_sfVector2f());
+        _position = position;
+
+        updateTransform();
     }
 
     void setRotation(float angle) {
-        ptr.sfTransformable_setRotation(angle);
+        _rotation = angle;
+
+        updateTransform();
     }
 
     void setScale(float factorX, float factorY) {
-        ptr.sfTransformable_setScale(sfVector2f(factorX, factorY));
+        _scale = Vector2f(factorX, factorY);
+
+        updateTransform();
     }
 
     void setScale(Vector2f factors) {
-        ptr.sfTransformable_setScale(factors.to_sfVector2f());
+        _scale = factors;
+
+        updateTransform();
     }
 
     void setOrigin(float x, float y) {
-        ptr.sfTransformable_setOrigin(sfVector2f(x, y));
+        _origin = Vector2f(x, y);
+
+        updateTransform();
     }
 
     void setOrigin(Vector2f origin) {
-        ptr.sfTransformable_setOrigin(origin.to_sfVector2f());
+        _origin = origin;
+
+        updateTransform();
     }
 
     Vector2f getPosition() {
-        return ptr.sfTransformable_getPosition().toVector2f();
+        return _position;
     }
 
     float getRotation() {
-        return ptr.sfTransformable_getRotation();
+        return _rotation;
     }
 
     Vector2f getScale() {
-        return ptr.sfTransformable_getScale().toVector2f();
+        return _scale;
     }
 
     Vector2f getOrigin() {
-        return ptr.sfTransformable_getOrigin().toVector2f();
+        return _origin;
     }
 
     void move(float offsetX, float offsetY) {
@@ -81,5 +95,18 @@ class Transformable {
         return ptr.sfTransformable_getInverseTransform();
     }
 
-    private sfTransformable* ptr;
+    private {
+        void updateTransform() {
+            _transformNeedsUpdate = true;
+            _inverseTransformNeedsUpdate = true;
+        }
+
+        sfTransformable* ptr;
+        Vector2f _origin;
+        Vector2f _position;
+        float _rotation;
+        Vector2f _scale = Vector2f(1, 1);
+        bool _transformNeedsUpdate;
+        bool _inverseTransformNeedsUpdate;
+    }
 }
