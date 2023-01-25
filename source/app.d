@@ -33,7 +33,7 @@ void main() {
 		}
 
 		renderWindow.clear(Color.Yellow);
-		circle.draw(renderWindow, new RenderStates());
+		renderWindow.draw(circle, null);
 		renderWindow.display();
 	}
 }

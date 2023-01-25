@@ -36,7 +36,11 @@ class CircleShape : Shape {
 
         Vector2f getPoint(size_t index)  {
             float angle = index * 2 * PI / _pointCount - PI / 2;
-            return Vector2f(_radius + cos(angle) * _radius, _radius + sin(angle) * _radius);
+
+            float x = cos(angle) * _radius;
+            float y = sin(angle) * _radius;
+
+            return Vector2f(_radius + x, _radius + y);
         }
     }
 
