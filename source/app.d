@@ -31,8 +31,6 @@ void main() {
 	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests");
 	sfEvent event;
 
-	Transform t = Transform(5, 5, 5, 6, 6, 6, 7, 7, 7);
-
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(&event)) {
 			if (event.type == sfEventType.sfEvtClosed) {
