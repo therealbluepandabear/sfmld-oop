@@ -9,19 +9,32 @@ import graphics.transformable;
 import graphics.drawable;
 import graphics.renderstates;
 import graphics.renderwindow;
+import graphics.rectangleshape;
 import system.vector2f;
 import bindbc.sfml;
 
 class Shape : Transformable, Drawable {
     this() {
-        ptr = sfShape_create();
+        ptr = sfShape_create(&getPointCount, &getPoint, cast(void*)this);
+        ptr.sfShape_update();
+    }
+
+    extern(C) private static ulong getPointCount(void* data) nothrow {
+        return (cast(Shape)data).getPointCount();
+    }
+
+    extern(C) private static sfVector2f getPoint(size_t index, void* data) nothrow {
+        return (cast(Shape)data).getPoint(index).to_sfVector2f_noThrow();
     }
 
     override void draw(RenderTarget target, RenderStates states) {
-        if (is(typeof(target) == RenderWindow)) {
-            RenderWindow targetAsRenderWindow = cast(RenderWindow)target;
-            targetAsRenderWindow.ptr.sfRenderWindow_drawShape(ptr, null);
-        }
+        //if (is(typeof(target) == RenderWindow)) {
+        //    import std.stdio;
+        //    writeln("OK"); stdout.flush();
+        //
+        //    RenderWindow targetAsRenderWindow = cast(RenderWindow)target;
+        //    targetAsRenderWindow.ptr.sfRenderWindow_drawShape(ptr, null);
+        //}
     }
 
     void setTexture(sfTexture* texture, bool resetRect) {
@@ -64,12 +77,12 @@ class Shape : Transformable, Drawable {
         return ptr.sfShape_getOutlineThickness();
     }
 
-    size_t getPointCount() {
+    size_t getPointCount() nothrow {
         return ptr.sfShape_getPointCount();
     }
 
-    Vector2f getPoint(size_t index) {
-        return ptr.sfShape_getPoint(index).toVector2f();
+    Vector2f getPoint(size_t index) nothrow {
+        return ptr.sfShape_getPoint(index).toVector2f_noThrow();
     }
 
     FloatRect getLocalBounds() {
@@ -80,5 +93,5 @@ class Shape : Transformable, Drawable {
         return ptr.sfShape_getGlobalBounds().toFloatRect();
     }
 
-    private sfShape* ptr;
+    sfShape* ptr;
 }

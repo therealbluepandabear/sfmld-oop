@@ -12,7 +12,8 @@ import graphics.renderstates;
 void main() {
 	loadSFML();
 
-	Shape rectangleShape = new RectangleShape(Vector2f(50, 50));
+	RectangleShape rectangleShape = new RectangleShape(Vector2f(50, 50));
+	rectangleShape.setPosition(Vector2f(50, 50));
 	rectangleShape.setFillColor(Color.Blue);
 
 	RenderWindow renderWindow = new RenderWindow(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
@@ -26,7 +27,7 @@ void main() {
 		}
 
 		renderWindow.clear(Color.Yellow);
-		rectangleShape.draw(renderWindow, new RenderStates());
+		renderWindow.ptr.sfRenderWindow_drawShape(rectangleShape.ptr, null);
 		renderWindow.display();
 	}
 }
