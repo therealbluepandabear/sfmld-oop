@@ -3,9 +3,11 @@ module window.videomode;
 import bindbc.sfml;
 
 struct VideoMode {
-    this(uint modeWidth, uint modeHeight, uint modeBitsPerPixel = 32) {
-        ptr = sfVideoMode(modeWidth, modeHeight, modeBitsPerPixel);
-    }
+    uint modeWidth;
+    uint modeHeight;
+    uint modePitsPerPixel = 32;
 
-    private sfVideoMode ptr;
+    bool isValid() {
+        return cast(bool)(sfVideoMode_isValid(sfVideoMode(modeWidth, modeHeight, modePitsPerPixel)));
+    }
 }
