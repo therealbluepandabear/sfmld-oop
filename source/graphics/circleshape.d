@@ -3,19 +3,26 @@ module graphics.circleshape;
 import graphics.shape;
 import system.vector2f;
 import std.math;
+import bindbc.sfml;
 
 class CircleShape : Shape {
     this(float radius = 0, size_t pointCount = 30) {
         _radius = radius;
         _pointCount = pointCount;
+
+        ptr.sfShape_update();
     }
 
     void setRadius(float radius) {
         _radius = radius;
+
+        ptr.sfShape_update();
     }
 
     void setPointCount(size_t pointCount) {
         _pointCount = pointCount;
+
+        ptr.sfShape_update();
     }
 
     float getRadius() {

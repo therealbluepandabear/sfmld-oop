@@ -7,6 +7,7 @@ import graphics.color;
 import graphics.renderwindow;
 import graphics.shape;
 import graphics.rectangleshape;
+import graphics.circleshape;
 import graphics.renderstates;
 
 void main() {
@@ -15,6 +16,8 @@ void main() {
 	RectangleShape rectangleShape = new RectangleShape(Vector2f(300, 50));
 	rectangleShape.setPosition(Vector2f(50, 50));
 	rectangleShape.setFillColor(Color.Blue);
+
+	CircleShape circle = new CircleShape(30);
 
 	RenderWindow renderWindow = new RenderWindow(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
 	sfEvent event;
@@ -27,7 +30,7 @@ void main() {
 		}
 
 		renderWindow.clear(Color.Yellow);
-		rectangleShape.draw(renderWindow, new RenderStates());
+		circle.draw(renderWindow, new RenderStates());
 		renderWindow.display();
 	}
 }
