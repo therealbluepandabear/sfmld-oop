@@ -15,7 +15,7 @@ import converters;
 
 class RenderWindow : Window, RenderTarget {
     this(VideoMode mode, string title, uint style, sfContextSettings* settings) {
-        ptr = sfRenderWindow_create(sfVideoMode(mode.modeWidth, mode.modeHeight, mode.modeBitsPerPixel), toStringz(title), style, settings);
+        ptr = sfRenderWindow_create(mode.to_sfVideoMode(), toStringz(title), style, settings);
     }
 
     this(sfWindowHandle handle, sfContextSettings* settings) {

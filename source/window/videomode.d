@@ -1,6 +1,7 @@
 module window.videomode;
 
 import bindbc.sfml;
+import converters;
 
 struct VideoMode {
     uint modeWidth;
@@ -8,6 +9,6 @@ struct VideoMode {
     uint modeBitsPerPixel = 32;
 
     bool isValid() {
-        return cast(bool)(sfVideoMode_isValid(sfVideoMode(modeWidth, modeHeight, modeBitsPerPixel)));
+        return cast(bool)(sfVideoMode_isValid(this.to_sfVideoMode()));
     }
 }

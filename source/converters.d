@@ -7,6 +7,7 @@ import system.vector2i;
 import graphics.floatrect;
 import graphics.intrect;
 import graphics.color;
+import window.videomode;
 import bindbc.sfml;
 
 Vector2f toVector2f(sfVector2f vector) {
@@ -84,3 +85,6 @@ sfColor to_sfColor(Color color) {
     return sfColor(color.red, color.green, color.blue, color.alpha);
 }
 
+sfVideoMode to_sfVideoMode(VideoMode videoMode) {
+    return sfVideoMode(videoMode.modeWidth, videoMode.modeHeight, videoMode.modeBitsPerPixel);
+}
