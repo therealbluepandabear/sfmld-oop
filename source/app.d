@@ -18,6 +18,7 @@ void main() {
 	rectangleShape.setFillColor(Color.Blue);
 
 	CircleShape circle = new CircleShape(30);
+	circle.setFillColor(Color.Red);
 
 	RenderWindow renderWindow = new RenderWindow(sfVideoMode(500, 500), "Tests", sfWindowStyle.sfDefaultStyle, null);
 	sfEvent event;
