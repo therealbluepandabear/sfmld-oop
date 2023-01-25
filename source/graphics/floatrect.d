@@ -8,12 +8,3 @@ struct FloatRect {
     float width;
     float height;
 }
-
-FloatRect toFloatRect(sfFloatRect floatRect) {
-    return FloatRect(
-        floatRect.left,
-        floatRect.top,
-        floatRect.width,
-        floatRect.height
-    );
-}

@@ -4,6 +4,8 @@ import system.vector2f;
 import system.vector2u;
 import system.vector3f;
 import system.vector2i;
+import graphics.floatrect;
+import graphics.intrect;
 import bindbc.sfml;
 
 Vector2f toVector2f(sfVector2f vector) {
@@ -30,6 +32,24 @@ Vector3f toVector3f(sfVector3f vector) {
     );
 }
 
+FloatRect toFloatRect(sfFloatRect rect) {
+    return FloatRect(
+        rect.left,
+        rect.top,
+        rect.width,
+        rect.height
+    );
+}
+
+IntRect toIntRect(sfIntRect rect) {
+    return IntRect(
+        rect.left,
+        rect.top,
+        rect.width,
+        rect.height
+    );
+}
+
 sfVector2f to_sfVector2f(Vector2f vector) {
     return sfVector2f(vector.x, vector.y);
 }
@@ -44,4 +64,13 @@ sfVector2u to_sfVector2u(Vector2u vector) {
 
 sfVector2i to_sfVector2i(Vector2i vector) {
     return sfVector2i(vector.x, vector.y);
+}
+
+sfIntRect to_sfIntRect(IntRect rect) {
+    return sfIntRect(
+        rect.left,
+        rect.top,
+        rect.width,
+        rect.height
+    );
 }
