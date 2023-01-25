@@ -17,7 +17,8 @@ import converters;
 class Shape : Transformable, Drawable {
     this() {
         ptr = sfShape_create(&getPointCount, &getPoint, cast(void*)this);
-        ptr.sfShape_update();
+
+        update();
     }
 
     extern(C) private static ulong getPointCount(void* data) nothrow {
@@ -50,6 +51,10 @@ class Shape : Transformable, Drawable {
 
     void setOutlineThickness(float thickness) {
         ptr.sfShape_setOutlineThickness(thickness);
+    }
+
+    void update() {
+        ptr.sfShape_update();
     }
 
     const(sfTexture)* getTexture() {

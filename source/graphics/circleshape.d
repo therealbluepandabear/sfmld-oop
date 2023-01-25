@@ -10,19 +10,19 @@ class CircleShape : Shape {
         _radius = radius;
         _pointCount = pointCount;
 
-        ptr.sfShape_update();
+        update();
     }
 
     void setRadius(float radius) {
         _radius = radius;
 
-        ptr.sfShape_update();
+        update();
     }
 
     void setPointCount(size_t pointCount) {
         _pointCount = pointCount;
 
-        ptr.sfShape_update();
+        update();
     }
 
     float getRadius() {

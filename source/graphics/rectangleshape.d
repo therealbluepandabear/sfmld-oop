@@ -11,7 +11,7 @@ class RectangleShape : Shape {
         _size = size;
         setSize(_size);
 
-        ptr.sfShape_update();
+        update();
     }
 
     Vector2f getSize() {
@@ -42,7 +42,8 @@ class RectangleShape : Shape {
 
         void setPosition(Vector2f position) {
             ptr.sfShape_setPosition(position.to_sfVector2f());
-            ptr.sfShape_update();
+
+            update();
         }
     }
 
