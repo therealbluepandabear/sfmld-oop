@@ -11,6 +11,7 @@ import system.vector2i;
 import system.vector2f;
 import bindbc.sfml;
 import std.string;
+import converters;
 
 class RenderWindow : Window, RenderTarget {
     this(VideoMode mode, string title, uint style, sfContextSettings* settings) {
