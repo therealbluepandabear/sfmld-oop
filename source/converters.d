@@ -4,6 +4,7 @@ import system.vector2f;
 import system.vector2u;
 import system.vector3f;
 import system.vector2i;
+import graphics.transform;
 import graphics.floatrect;
 import graphics.intrect;
 import graphics.color;
@@ -55,6 +56,13 @@ IntRect toIntRect(sfIntRect rect) {
 Color toColor(sfColor color) {
     return Color(color.r, color.g, color.b, color.a);
 }
+
+//sfTransform to_Transform(const(sfTransform)* transform) {
+//    float* matrix;
+//    transform.sfTransform_getMatrix(matrix);
+//
+//    //return Transform(matrix);
+//}
 
 sfVector2f to_sfVector2f(Vector2f vector) {
     return sfVector2f(vector.x, vector.y);
