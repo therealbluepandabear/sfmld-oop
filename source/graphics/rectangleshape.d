@@ -38,6 +38,11 @@ class RectangleShape : Shape {
                     return Vector2f(0, _size.y);
             }
         }
+
+        void setPosition(Vector2f position) {
+            ptr.sfShape_setPosition(position.to_sfVector2f());
+            ptr.sfShape_update();
+        }
     }
 
     private Vector2f _size;

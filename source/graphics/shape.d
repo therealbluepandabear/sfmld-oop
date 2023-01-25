@@ -28,13 +28,7 @@ class Shape : Transformable, Drawable {
     }
 
     override void draw(RenderTarget target, RenderStates states) {
-        //if (is(typeof(target) == RenderWindow)) {
-        //    import std.stdio;
-        //    writeln("OK"); stdout.flush();
-        //
-        //    RenderWindow targetAsRenderWindow = cast(RenderWindow)target;
-        //    targetAsRenderWindow.ptr.sfRenderWindow_drawShape(ptr, null);
-        //}
+        (cast(RenderWindow)target).ptr.sfRenderWindow_drawShape(ptr, null);
     }
 
     void setTexture(sfTexture* texture, bool resetRect) {
