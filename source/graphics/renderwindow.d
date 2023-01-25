@@ -2,6 +2,7 @@ module graphics.renderwindow;
 
 import window.window;
 import window.videomode;
+import window.windowstyle;
 import graphics.rendertarget;
 import graphics.color;
 import graphics.intrect;
@@ -14,11 +15,11 @@ import std.string;
 import converters;
 
 class RenderWindow : Window, RenderTarget {
-    this(VideoMode mode, string title, uint style, sfContextSettings* settings) {
+    this(VideoMode mode, string title, uint style = WindowStyle.Default, sfContextSettings* settings = null) {
         ptr = sfRenderWindow_create(mode.to_sfVideoMode(), toStringz(title), style, settings);
     }
 
-    this(sfWindowHandle handle, sfContextSettings* settings) {
+    this(sfWindowHandle handle, sfContextSettings* settings = null) {
         ptr = sfRenderWindow_createFromHandle(handle, settings);
     }
 

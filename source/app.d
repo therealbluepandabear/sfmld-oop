@@ -22,7 +22,7 @@ void main() {
 	CircleShape circle = new CircleShape(30);
 	circle.setFillColor(Color.Red);
 
-	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests", WindowStyle.Default, null);
+	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests");
 	sfEvent event;
 
 	while (renderWindow.isOpen()) {
