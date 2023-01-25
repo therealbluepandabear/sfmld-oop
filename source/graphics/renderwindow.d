@@ -15,7 +15,12 @@ import std.string;
 import converters;
 
 class RenderWindow : Window, RenderTarget {
-    this(VideoMode mode, string title, uint style = WindowStyle.Default, sfContextSettings* settings = null) {
+    this(
+        VideoMode mode,
+        string title,
+        uint style = WindowStyle.Default,
+        sfContextSettings* settings = null
+    ) {
         ptr = sfRenderWindow_create(mode.to_sfVideoMode(), toStringz(title), style, settings);
     }
 
