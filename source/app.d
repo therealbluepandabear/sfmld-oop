@@ -32,6 +32,13 @@ void main() {
 	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests");
 	Event event;
 
+	import std.stdio;
+	Vector2f v = { 5, 5 };
+	Vector2f v2 = { 10, 10 };
+
+	writeln(v / v2); stdout.flush();
+
+
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(event)) {
 			if (event.type == Event.EventType.Closed) {

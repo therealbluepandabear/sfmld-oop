@@ -60,10 +60,6 @@ Color toColor(sfColor color) {
 }
 
 private Event.EventType toEventType(sfEventType eventType) {
-    import std.stdio;
-    writeln(to!(int)(eventType)); stdout.flush();
-    writeln(to!(Event.EventType)(to!(int)(eventType))); stdout.flush();
-
     return to!(Event.EventType)(to!(int)(eventType));
 }
 
