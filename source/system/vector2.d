@@ -16,6 +16,10 @@ struct Vector2(T) if (isNumeric!(T)) {
             return Vector2(x * rhs.x, y * rhs.y);
         } else static if (op == "/") {
             return Vector2(x / rhs.x, y / rhs.y);
+        } else static if (op == "+") {
+            return Vector2(x + rhs.x, y + rhs.y);
+        } else static if (op == "-") {
+            return Vector2(x - rhs.x, y - rhs.y);
         }
     }
 }

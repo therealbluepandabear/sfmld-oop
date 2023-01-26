@@ -19,6 +19,10 @@ struct Vector3(T) if (isNumeric!(T)) {
             return Vector3(x * rhs.x, y * rhs.y, z * rhs.z);
         } else static if (op == "/") {
             return Vector3(x / rhs.x, y / rhs.y, z / rhs.z);
+        } else static if (op == "+") {
+            return Vector3(x + rhs.x, y + rhs.y, z + rhs.y);
+        } else static if (op == "-") {
+            return Vector3(x - rhs.x, y - rhs.y, z - rhs.z);
         }
     }
 }
