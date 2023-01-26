@@ -3,7 +3,7 @@ module graphics.rendertarget;
 import graphics.color;
 import graphics.drawable;
 import graphics.renderstates;
-import graphics.intrect;
+import graphics.rect;
 import system.vector2;
 import bindbc.sfml;
 

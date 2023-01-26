@@ -2,8 +2,7 @@ module graphics.shape;
 
 import wrappers;
 import graphics.color;
-import graphics.intrect;
-import graphics.floatrect;
+import graphics.rect;
 import graphics.rendertarget;
 import graphics.transformable;
 import graphics.drawable;

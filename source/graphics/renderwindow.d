@@ -6,7 +6,7 @@ import window.windowstyle;
 import window.event;
 import graphics.rendertarget;
 import graphics.color;
-import graphics.intrect;
+import graphics.rect;
 import graphics.drawable;
 import graphics.renderstates;
 import system.vector2;
