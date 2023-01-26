@@ -4,7 +4,7 @@ import bindbc.sfml;
 import std.string;
 import system.vector2;
 import window.event;
-import converters;
+import internal.converters;
 
 class Window {
     this() {

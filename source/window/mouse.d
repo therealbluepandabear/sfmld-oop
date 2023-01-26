@@ -4,7 +4,7 @@ import bindbc.sfml;
 import std.conv;
 import system.vector2;
 import window.window;
-import converters;
+import internal.converters;
 
 final abstract class Mouse {
     enum Button {

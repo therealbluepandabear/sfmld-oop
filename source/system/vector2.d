@@ -36,3 +36,23 @@ struct Vector2(T) if (isNumeric!(T)) {
 alias Vector2f = Vector2!(float);
 alias Vector2i = Vector2!(int);
 alias Vector2u = Vector2!(uint);
+
+import internal.testutils;
+
+mixin(unitTestStart);
+
+unittest {
+    Vector2f vector1 = Vector2f(9, 3);
+    Vector2f vector2 = Vector2f(10, 1);
+
+    assert(vector1 + vector2 == Vector2f(19, 4));
+}
+
+unittest {
+    Vector2f vector1 = Vector2f(3, 4);
+    Vector2f vector2 = Vector2f(12, 9);
+
+    assert(vector1 - vector2 == Vector2f(-9, -5));
+}
+
+mixin(unitTestPassed);

@@ -3,7 +3,7 @@ module window.sensor;
 import bindbc.sfml;
 import std.conv;
 import system.vector3;
-import converters;
+import internal.converters;
 
 final abstract class Sensor {
     enum Type {

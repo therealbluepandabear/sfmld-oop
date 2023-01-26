@@ -4,7 +4,7 @@ import graphics.shape;
 import graphics.color;
 import system.vector2;
 import bindbc.sfml;
-import converters;
+import internal.converters;
 
 class RectangleShape : Shape {
     this(Vector2f size) {

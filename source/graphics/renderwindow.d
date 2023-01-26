@@ -12,7 +12,7 @@ import graphics.renderstates;
 import system.vector2;
 import bindbc.sfml;
 import std.string;
-import converters;
+import internal.converters;
 
 class RenderWindow : Window, RenderTarget {
     this(

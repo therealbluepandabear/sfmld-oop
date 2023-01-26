@@ -1,4 +1,4 @@
-module converters;
+module internal.converters;
 
 import system.vector2;
 import system.vector3;

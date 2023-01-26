@@ -1,7 +1,7 @@
 module window.videomode;
 
 import bindbc.sfml;
-import converters;
+import internal.converters;
 
 struct VideoMode {
     uint modeWidth;

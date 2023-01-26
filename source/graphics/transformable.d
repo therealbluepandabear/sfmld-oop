@@ -2,7 +2,7 @@ module graphics.transformable;
 
 import bindbc.sfml;
 import system.vector2;
-import converters;
+import internal.converters;
 
 class Transformable {
     this() {

@@ -1,7 +1,7 @@
 module graphics.transform;
 
 import bindbc.sfml;
-import converters;
+import internal.converters;
 
 struct Transform {
     this(

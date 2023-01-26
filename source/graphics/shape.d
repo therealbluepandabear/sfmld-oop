@@ -11,7 +11,7 @@ import graphics.renderwindow;
 import graphics.rectangleshape;
 import system.vector2;
 import bindbc.sfml;
-import converters;
+import internal.converters;
 
 class Shape : Transformable, Drawable {
     this() {
