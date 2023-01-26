@@ -14,6 +14,12 @@ struct Vector3(T) if (isNumeric!(T)) {
         this.z = z;
     }
 
+    this(U)(Vector3!(U) vector) {
+        x = cast(T)vector.x;
+        y = cast(T)vector.y;
+        z = cast(T)vector.z;
+    }
+
     Vector3 opBinary(string op)(Vector3 rhs) {
         static if (op == "*") {
             return Vector3(x * rhs.x, y * rhs.y, z * rhs.z);

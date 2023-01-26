@@ -11,6 +11,11 @@ struct Vector2(T) if (isNumeric!(T)) {
         this.y = y;
     }
 
+    this(U)(Vector2!(U) vector) {
+        x = cast(T)vector.x;
+        y = cast(T)vector.y;
+    }
+
     Vector2 opBinary(string op)(Vector2 rhs) {
         static if (op == "*") {
             return Vector2(x * rhs.x, y * rhs.y);
