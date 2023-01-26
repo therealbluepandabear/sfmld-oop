@@ -1,6 +1,7 @@
 module graphics.color;
 
 import bindbc.sfml;
+import std.algorithm.comparison;
 
 struct Color {
     ubyte red;
@@ -23,7 +24,18 @@ struct Color {
     }
 
     uint toInteger() {
-        return cast(uint)((red << 24) | (green << 16) | (blue << 8 ) | alpha);
+        return cast(uint)((red << 24) | (green << 16) | (blue << 8) | alpha);
+    }
+
+    Color opBinary(string op)(Color rhs) {
+        static if (op == "+") {
+            return Color(
+                cast(ubyte)(min(red + rhs.red, 255)),
+                cast(ubyte)(min(green + rhs.green, 255)),
+                cast(ubyte)(min(blue + rhs.blue, 255)),
+                cast(ubyte)(min(alpha + rhs.alpha, 255))
+            );
+        }
     }
 
     static const(Color) Black = Color(0, 0, 0, 255);
