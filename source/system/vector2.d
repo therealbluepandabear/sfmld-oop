@@ -3,8 +3,13 @@ module system.vector2;
 import std.traits;
 
 struct Vector2(T) if (isNumeric!(T)) {
-    T x = 0;
-    T y = 0;
+    T x;
+    T y;
+
+    this(T x, T y) {
+        this.x = x;
+        this.y = y;
+    }
 
     Vector2 opBinary(string op)(Vector2 rhs) {
         static if (op == "*") {

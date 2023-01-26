@@ -32,14 +32,6 @@ void main() {
 	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests");
 	Event event;
 
-	import std.stdio;
-	Vector2f v = { 5, 5 };
-	Vector2f v2 = { 10, 10 };
-
-	Vector2f v3;
-
-	writeln(v3); stdout.flush();
-
 
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(event)) {

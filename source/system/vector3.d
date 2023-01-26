@@ -4,9 +4,15 @@ import bindbc.sfml;
 import std.traits;
 
 struct Vector3(T) if (isNumeric!(T)) {
-    T x = 0;
-    T y = 0;
-    T z = 0;
+    T x;
+    T y;
+    T z;
+
+    this(T x, T y, T z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
 
     Vector3 opBinary(string op)(Vector3 rhs) {
         static if (op == "*") {
