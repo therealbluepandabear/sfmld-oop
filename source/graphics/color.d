@@ -22,6 +22,10 @@ struct Color {
         alpha = cast(ubyte)(color);
     }
 
+    uint toInteger() {
+        return cast(uint)((red << 24) | (green << 16) | (blue << 8 ) | alpha);
+    }
+
     static const(Color) Black = Color(0, 0, 0, 255);
     static const(Color) White = Color(255, 255, 255, 255);
     static const(Color) Red = Color(255, 0, 0, 255);
@@ -38,9 +42,15 @@ import internal.testutils;
 mixin(unitTestStart);
 
 unittest {
-    Color black = Color(0x4D4359ff);
+    Color color = Color(0x4D4359ff);
 
-    assert(black.red == 77 && black.green == 67 && black.blue == 89 && black.alpha == 255);
+    assert(color.red == 77 && color.green == 67 && color.blue == 89 && color.alpha == 255);
+}
+
+unittest {
+    Color color = Color(98, 12, 43, 255);
+
+    assert(color.toInteger() == 0x620C2Bff);
 }
 
 mixin(unitTestPassed);
