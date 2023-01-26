@@ -6,7 +6,7 @@ struct Color {
     ubyte red;
     ubyte green;
     ubyte blue;
-    ubyte alpha;
+    ubyte alpha = 255;
 
     static const(Color) Black = Color(0, 0, 0, 255);
     static const(Color) White = Color(255, 255, 255, 255);
