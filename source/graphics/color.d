@@ -44,10 +44,10 @@ struct Color {
             );
         } else static if (op == "*") {
             return Color(
-                cast(ubyte)((red * rhs.red) / 255),
-                cast(ubyte)((green * rhs.green) / 255),
-                cast(ubyte)((blue * rhs.blue) / 255),
-                cast(ubyte)((alpha * rhs.alpha) / 255)
+                cast(ubyte)(((red * rhs.red) / 255)),
+                cast(ubyte)(((green * rhs.green) / 255)),
+                cast(ubyte)(((blue * rhs.blue) / 255)),
+                cast(ubyte)(((alpha * rhs.alpha) / 255))
             );
         }
     }
@@ -94,6 +94,27 @@ unittest {
     Color color = Color(98, 12, 43, 255);
 
     assert(color.toInteger() == 0x620C2Bff);
+}
+
+unittest {
+    Color colorLhs = Color(23, 87, 13, 45);
+    Color colorRhs = Color(48, 2, 3, 255);
+
+    assert(colorLhs + colorRhs == Color(71, 89, 16, 255));
+}
+
+unittest {
+    Color colorLhs = Color(76, 27, 8, 135);
+    Color colorRhs = Color(11, 53, 123, 252);
+
+    assert(colorLhs - colorRhs == Color(65, 0, 0, 0));
+}
+
+unittest {
+    Color colorLhs = Color(125, 24, 28, 76);
+    Color colorRhs = Color(58, 3, 9, 48);
+
+    assert(colorLhs * colorRhs == Color(28, 0, 0, 14));
 }
 
 mixin(unitTestPassed);
