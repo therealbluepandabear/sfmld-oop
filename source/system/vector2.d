@@ -12,8 +12,8 @@ struct Vector2(T) if (isNumeric!(T)) {
     }
 
     this(U)(Vector2!(U) vector) {
-        x = cast(T)vector.x;
-        y = cast(T)vector.y;
+        x = cast(T)(vector.x);
+        y = cast(T)(vector.y);
     }
 
     Vector2 opBinary(string op)(Vector2 rhs) {

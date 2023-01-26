@@ -15,9 +15,9 @@ struct Vector3(T) if (isNumeric!(T)) {
     }
 
     this(U)(Vector3!(U) vector) {
-        x = cast(T)vector.x;
-        y = cast(T)vector.y;
-        z = cast(T)vector.z;
+        x = cast(T)(vector.x);
+        y = cast(T)(vector.y);
+        z = cast(T)(vector.z);
     }
 
     Vector3 opBinary(string op)(Vector3 rhs) {

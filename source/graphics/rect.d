@@ -22,6 +22,13 @@ struct Rect(T) if (isNumeric!(T)) {
         this.width = width;
         this.height = height;
     }
+
+    this(U)(Rect!(U) rect) {
+        this.left = cast(T)(rect.left);
+        this.top = cast(T)(rect.top);
+        this.width = cast(T)(rect.width);
+        this.height = cast(T)(rect.height);
+    }
 }
 
 alias FloatRect = Rect!(float);
