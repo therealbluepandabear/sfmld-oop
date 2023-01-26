@@ -18,9 +18,9 @@ struct Vector2(T) if (isNumeric!(T)) {
 
     Vector2 opBinary(string op)(T rhs) {
         static if (op == "*") {
-            return Vector3(x * rhs, y * rhs);
+            return Vector2(x * rhs, y * rhs);
         } else static if (op == "/") {
-            return Vector3(x / rhs, y / rhs);
+            return Vector2(x / rhs, y / rhs);
         }
     }
 
@@ -53,6 +53,12 @@ unittest {
     Vector2f vector2 = Vector2f(12, 9);
 
     assert(vector1 - vector2 == Vector2f(-9, -5));
+}
+
+unittest {
+    Vector2f vector1 = Vector2f(12, 4);
+
+    assert((vector1 * 2f) == Vector2f(24, 8));
 }
 
 mixin(unitTestPassed);
