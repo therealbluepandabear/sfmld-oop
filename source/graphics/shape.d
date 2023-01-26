@@ -10,7 +10,7 @@ import graphics.drawable;
 import graphics.renderstates;
 import graphics.renderwindow;
 import graphics.rectangleshape;
-import system.vector2f;
+import system.vector2;
 import bindbc.sfml;
 import converters;
 

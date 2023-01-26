@@ -2,7 +2,7 @@ import std.stdio;
 import bindbc.sfml;
 import wrappers;
 import graphics.rectangleshape;
-import system.vector2f;
+import system.vector2;
 import graphics.color;
 import graphics.renderwindow;
 import graphics.shape;

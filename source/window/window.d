@@ -2,8 +2,7 @@ module window.window;
 
 import bindbc.sfml;
 import std.string;
-import system.vector2i;
-import system.vector2u;
+import system.vector2;
 import window.event;
 import converters;
 

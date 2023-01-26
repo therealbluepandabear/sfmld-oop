@@ -2,7 +2,7 @@ module window.sensor;
 
 import bindbc.sfml;
 import std.conv;
-import system.vector3f;
+import system.vector3;
 import converters;
 
 final abstract class Sensor {

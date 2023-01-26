@@ -1,7 +1,7 @@
 module graphics.circleshape;
 
 import graphics.shape;
-import system.vector2f;
+import system.vector2;
 import std.math;
 import bindbc.sfml;
 

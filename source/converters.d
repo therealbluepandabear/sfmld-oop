@@ -1,9 +1,7 @@
 module converters;
 
-import system.vector2f;
-import system.vector2u;
-import system.vector3f;
-import system.vector2i;
+import system.vector2;
+import system.vector3;
 import graphics.transform;
 import graphics.floatrect;
 import graphics.intrect;

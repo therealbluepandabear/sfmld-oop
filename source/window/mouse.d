@@ -2,7 +2,7 @@ module window.mouse;
 
 import bindbc.sfml;
 import std.conv;
-import system.vector2i;
+import system.vector2;
 import window.window;
 import converters;
 

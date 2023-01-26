@@ -2,7 +2,7 @@ module graphics.rectangleshape;
 
 import graphics.shape;
 import graphics.color;
-import system.vector2f;
+import system.vector2;
 import bindbc.sfml;
 import converters;
 
