@@ -32,9 +32,9 @@ void main() {
 	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests");
 	Event event;
 
-	Vector2f v = Vector2f(5, 5);
+	Vector2f v = Vector2f();
 	import std.stdio;
-	writeln(v / Vector2f(5, 5)); stdout.flush();
+	writeln(v); stdout.flush();
 
 
 	while (renderWindow.isOpen()) {

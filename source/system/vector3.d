@@ -4,9 +4,9 @@ import bindbc.sfml;
 import std.traits;
 
 struct Vector3(T) if (isNumeric!(T)) {
-    T x;
-    T y;
-    T z;
+    T x = 0;
+    T y = 0;
+    T z = 0;
 
     this(T x, T y, T z) {
         this.x = x;
