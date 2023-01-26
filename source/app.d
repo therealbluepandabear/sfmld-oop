@@ -13,6 +13,7 @@ import graphics.convexshape;
 import graphics.transform;
 import window.videomode;
 import window.windowstyle;
+import window.event;
 
 void main() {
 	loadSFML();
@@ -29,16 +30,20 @@ void main() {
 	cs.setOutlineColor(Color.Blue);
 
 	RenderWindow renderWindow = new RenderWindow(VideoMode(500, 500), "Tests");
-	sfEvent event;
+	Event event;
 
 	while (renderWindow.isOpen()) {
-		while (renderWindow.pollEvent(&event)) {
-			if (event.type == sfEventType.sfEvtClosed) {
+		while (renderWindow.pollEvent(event)) {
+			if (event.type == Event.EventType.Closed) {
 				renderWindow.close();
 			}
 		}
 
 		renderWindow.clear(Color.Yellow);
+
+		import std.stdio;
+		writeln(event.type); stdout.flush();
+
 		renderWindow.draw(cs, null);
 		renderWindow.display();
 	}

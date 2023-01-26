@@ -4,6 +4,7 @@ import bindbc.sfml;
 import std.string;
 import system.vector2i;
 import system.vector2u;
+import window.event;
 import converters;
 
 class Window {
@@ -39,8 +40,10 @@ class Window {
         return ptr.sfWindow_getSettings();
     }
 
-    bool pollEvent(sfEvent* event) {
-        return cast(bool)(ptr.sfWindow_pollEvent(event));
+    bool pollEvent(ref Event event) {
+        sfEvent sfEvt = event.to_sfEvent();
+
+        return cast(bool)(ptr.sfWindow_pollEvent(&sfEvt));
     }
 
     bool waitEvent(sfEvent* event) {

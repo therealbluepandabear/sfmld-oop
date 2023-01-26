@@ -9,7 +9,9 @@ import graphics.floatrect;
 import graphics.intrect;
 import graphics.color;
 import window.videomode;
+import window.event;
 import bindbc.sfml;
+import std.conv;
 
 Vector2f toVector2f(sfVector2f vector) {
     return Vector2f(vector.x, vector.y);
@@ -57,6 +59,17 @@ Color toColor(sfColor color) {
     return Color(color.r, color.g, color.b, color.a);
 }
 
+private Event.EventType toEventType(sfEventType eventType) {
+    return to!(Event.EventType)(to!(int)(eventType));
+}
+
+Event toEvent(sfEvent event) {
+    Event ev;
+    ev.type = toEventType(event.type);
+
+    return ev;
+}
+
 sfVector2f to_sfVector2f(Vector2f vector) {
     return sfVector2f(vector.x, vector.y);
 }
@@ -88,4 +101,15 @@ sfColor to_sfColor(Color color) {
 
 sfVideoMode to_sfVideoMode(VideoMode videoMode) {
     return sfVideoMode(videoMode.modeWidth, videoMode.modeHeight, videoMode.modeBitsPerPixel);
+}
+
+private sfEventType to_sfEventType(Event.EventType eventType) {
+    return to!(sfEventType)(to!(int)(eventType));
+}
+
+sfEvent to_sfEvent(Event event) {
+    sfEvent ev = sfEvent();
+    ev.type = to_sfEventType(event.type);
+
+    return ev;
 }

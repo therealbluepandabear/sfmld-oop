@@ -3,6 +3,7 @@ module graphics.renderwindow;
 import window.window;
 import window.videomode;
 import window.windowstyle;
+import window.event;
 import graphics.rendertarget;
 import graphics.color;
 import graphics.intrect;
@@ -81,8 +82,13 @@ class RenderWindow : Window, RenderTarget {
             return cast(bool)(ptr.sfRenderWindow_isOpen());
         }
 
-        bool pollEvent(sfEvent* event) {
-            return cast(bool)(ptr.sfRenderWindow_pollEvent(event));
+        bool pollEvent(ref Event event) {
+            sfEvent ev = event.to_sfEvent();
+
+            int eventPolled = ptr.sfRenderWindow_pollEvent(&ev);
+            event = ev.toEvent();
+
+            return cast(bool)(eventPolled);
         }
 
         void display() {
