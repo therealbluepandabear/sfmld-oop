@@ -52,7 +52,7 @@ struct Color {
         }
     }
 
-    Color opOpAssign(string op)(Color rhs) {
+    ref Color opOpAssign(string op)(Color rhs) {
         static if (op == "+") {
             Color color = this + rhs;
         } else static if (op == "-") {
