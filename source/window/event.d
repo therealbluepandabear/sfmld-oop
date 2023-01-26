@@ -90,9 +90,11 @@ struct Event {
         JoystickConnected,
         JoystickDisconnected,
         TouchBegan,
-        TouchMove,
+        TouchMoved,
         TouchEnded,
-        SensorChanged
+        SensorChanged,
+
+        Count
     }
 
     EventType type;
