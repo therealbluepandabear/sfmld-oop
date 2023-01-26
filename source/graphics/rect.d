@@ -1,6 +1,8 @@
 module graphics.rect;
 
-struct Rect(T) {
+import std.traits;
+
+struct Rect(T) if (isNumeric!(T)) {
     T left;
     T top;
     T width;
