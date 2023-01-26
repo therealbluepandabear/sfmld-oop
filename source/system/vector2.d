@@ -67,4 +67,15 @@ unittest {
     assert((vector1 / 3f) == Vector2f(1, 8f / 3f));
 }
 
+unittest {
+    Vector2f vecFloat;
+    assert(is(typeof(vecFloat) == Vector2!(float)));
+
+    Vector2i vecInt;
+    assert(is(typeof(vecInt) == Vector2!(int)));
+
+    Vector2u vecUint;
+    assert(is(typeof(vecUint) == Vector2!(uint)));
+}
+
 mixin(unitTestPassed);
