@@ -34,7 +34,7 @@ void main() {
 
 	Vector2f v = Vector2f();
 	import std.stdio;
-	writeln(Color(43, 34, 22) + Color(234, 22, 21)); stdout.flush();
+	writeln(Color(43, 34, 22) * Color(234, 22, 21)); stdout.flush();
 
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(event)) {
