@@ -4,15 +4,14 @@ public import std.stdio;
 
 const(string) unitTestStart =
     `unittest {
-        writeln("-----");
+        writeln("---------------------------------------------");
         writeln("Starting unittest for ", __MODULE__);
-        writeln("-----");
+        writeln("---------------------------------------------");
     }`;
 
 
 const(string) unitTestPassed =
     `unittest {
-        writeln("-----");
-        writeln("Starting unittest for ", __MODULE__);
-        writeln("-----");
+        writeln("Unittest passed for ", __MODULE__);
+        writeln("---------------------------------------------");
     }`;
