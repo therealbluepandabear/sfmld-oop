@@ -36,7 +36,9 @@ void main() {
 	Vector2f v = { 5, 5 };
 	Vector2f v2 = { 10, 10 };
 
-	writeln(v / v2); stdout.flush();
+	Vector2f v3;
+
+	writeln(v3); stdout.flush();
 
 
 	while (renderWindow.isOpen()) {
