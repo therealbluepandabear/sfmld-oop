@@ -16,12 +16,16 @@ struct Vector2(T) if (isNumeric!(T)) {
         y = cast(T)(vector.y);
     }
 
-    Vector2 opBinary(string op)(Vector2 rhs) {
+    Vector2 opBinary(string op)(T rhs) {
         static if (op == "*") {
-            return Vector2(x * rhs.x, y * rhs.y);
+            return Vector3(x * rhs, y * rhs);
         } else static if (op == "/") {
-            return Vector2(x / rhs.x, y / rhs.y);
-        } else static if (op == "+") {
+            return Vector3(x / rhs, y / rhs);
+        }
+    }
+
+    Vector2 opBinary(string op)(Vector2 rhs) {
+        static if (op == "+") {
             return Vector2(x + rhs.x, y + rhs.y);
         } else static if (op == "-") {
             return Vector2(x - rhs.x, y - rhs.y);

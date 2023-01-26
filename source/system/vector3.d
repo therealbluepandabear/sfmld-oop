@@ -20,12 +20,16 @@ struct Vector3(T) if (isNumeric!(T)) {
         z = cast(T)(vector.z);
     }
 
-    Vector3 opBinary(string op)(Vector3 rhs) {
+    Vector3 opBinary(string op)(T rhs) {
         static if (op == "*") {
-            return Vector3(x * rhs.x, y * rhs.y, z * rhs.z);
+            return Vector3(x * rhs, y * rhs, z * rhs);
         } else static if (op == "/") {
-            return Vector3(x / rhs.x, y / rhs.y, z / rhs.z);
-        } else static if (op == "+") {
+            return Vector3(x / rhs, y / rhs, z / rhs);
+        }
+    }
+
+    Vector3 opBinary(string op)(Vector3 rhs) {
+        static if (op == "+") {
             return Vector3(x + rhs.x, y + rhs.y, z + rhs.y);
         } else static if (op == "-") {
             return Vector3(x - rhs.x, y - rhs.y, z - rhs.z);

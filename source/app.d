@@ -36,7 +36,6 @@ void main() {
 	import std.stdio;
 	writeln(v); stdout.flush();
 
-
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(event)) {
 			if (event.type == Event.EventType.Closed) {
