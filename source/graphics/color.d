@@ -35,6 +35,13 @@ struct Color {
                 cast(ubyte)(min(blue + rhs.blue, 255)),
                 cast(ubyte)(min(alpha + rhs.alpha, 255))
             );
+        } else static if (op == "-") {
+            return Color(
+                cast(ubyte)(max(red - rhs.red, 0)),
+                cast(ubyte)(max(green - rhs.green, 0)),
+                cast(ubyte)(max(blue - rhs.blue, 0)),
+                cast(ubyte)(max(alpha - rhs.alpha, 0))
+            );
         }
     }
 
