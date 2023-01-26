@@ -45,3 +45,8 @@ class RectangleShape : Shape {
 
     private Vector2f _size;
 }
+
+unittest {
+    import std.stdio;
+    writeln("Unit test for `rectangleshape.d`");
+}

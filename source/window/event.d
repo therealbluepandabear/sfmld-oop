@@ -82,7 +82,7 @@ struct Event {
         MouseButtonPressed,
         MouseButtonReleased,
         MouseMoved,
-        MoustEntered,
+        MouseEntered,
         MouseLeft,
         JoystickButtonPressed,
         JoystickButtonReleased,
