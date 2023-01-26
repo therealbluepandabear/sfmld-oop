@@ -29,14 +29,10 @@ class RectangleShape : Shape {
 
         Vector2f getPoint(size_t index) {
             final switch (index) {
-                case 0:
-                    return Vector2f(0, 0);
-                case 1:
-                    return Vector2f(_size.x, 0);
-                case 2:
-                    return Vector2f(_size.x, _size.y);
-                case 3:
-                    return Vector2f(0, _size.y);
+                case 0: return Vector2f(0, 0);
+                case 1: return Vector2f(_size.x, 0);
+                case 2: return Vector2f(_size.x, _size.y);
+                case 3: return Vector2f(0, _size.y);
             }
         }
 
