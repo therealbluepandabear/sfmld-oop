@@ -52,6 +52,23 @@ struct Color {
         }
     }
 
+    Color opOpAssign(string op)(Color rhs) {
+        static if (op == "+") {
+            Color color = this + rhs;
+        } else static if (op == "-") {
+            Color color = this - rhs;
+        } else static if (op == "*") {
+            Color color = this * rhs;
+        }
+
+        this.red = color.red;
+        this.green = color.green;
+        this.blue = color.blue;
+        this.alpha = color.alpha;
+
+        return this;
+    }
+
     static const(Color) Black = Color(0, 0, 0, 255);
     static const(Color) White = Color(255, 255, 255, 255);
     static const(Color) Red = Color(255, 0, 0, 255);

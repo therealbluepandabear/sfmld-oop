@@ -33,8 +33,16 @@ void main() {
 	Event event;
 
 	Vector2f v = Vector2f();
+
 	import std.stdio;
-	writeln(Color(43, 34, 22) * Color(234, 22, 21)); stdout.flush();
+
+	auto color = Color(43, 34, 2);
+	color += Color(43, 34, 22);
+
+	int x = 5;
+	int y = 5;
+
+	writeln(&(x += y), " ", &x); stdout.flush();
 
 	while (renderWindow.isOpen()) {
 		while (renderWindow.pollEvent(event)) {
