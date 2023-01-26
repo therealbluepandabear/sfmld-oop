@@ -78,6 +78,10 @@ struct Event {
         TextEntered,
         KeyPressed,
         KeyReleased,
+
+        deprecated("Deprecated, use MouseWheelScrolled")
+        MouseWheelMoved,
+
         MouseWheelScrolled,
         MouseButtonPressed,
         MouseButtonReleased,

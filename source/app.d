@@ -40,10 +40,6 @@ void main() {
 		}
 
 		renderWindow.clear(Color.Yellow);
-
-		import std.stdio;
-		writeln(event.type); stdout.flush();
-
 		renderWindow.draw(cs, null);
 		renderWindow.display();
 	}
