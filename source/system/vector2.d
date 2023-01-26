@@ -61,4 +61,10 @@ unittest {
     assert((vector1 * 2f) == Vector2f(24, 8));
 }
 
+unittest {
+    Vector2f vector1 = Vector2f(3, 8);
+
+    assert((vector1 / 3f) == Vector2f(1, 8f / 3f));
+}
+
 mixin(unitTestPassed);
